@@ -1,6 +1,6 @@
 ---
 title: "ASCIS 2020 Quals - Web"
-date: 2020-01-08
+date: 2020-11-01
 tags: ["ctf", "web"]
 layout: layouts/post.njk
 ---
