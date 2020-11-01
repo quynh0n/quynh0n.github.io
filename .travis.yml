@@ -7,7 +7,7 @@ script: NODE_ENV=production eleventy --pathprefix="/"
 deploy:
   local-dir: _site
   provider: pages
-  skip-cleanup: true
+  cleanup: false
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
   on:
